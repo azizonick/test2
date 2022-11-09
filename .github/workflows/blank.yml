@@ -19,3 +19,4 @@ jobs:
           REMOTE_HOST: "ec2-44-211-246-156.compute-1.amazonaws.com"
           REMOTE_USER: "ubuntu"
           TARGET: "/home/ubuntu/wepad_test_app"
+          args: stack deploy --compose-file docker-compose.yml local-test
