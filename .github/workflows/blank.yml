@@ -19,4 +19,9 @@ jobs:
           REMOTE_HOST: "ec2-44-211-246-156.compute-1.amazonaws.com"
           REMOTE_USER: "ubuntu"
           TARGET: "/home/ubuntu/wepad_test_app"
-          args: docker stack deploy -c docker-compose.yml local-test
+
+      - name: Deploy to swarm
+        uses: sagebind/docker-swarm-deploy-action@v2
+        with:
+         remote_host: ssh -i "test1.pem" ubuntu@ec2-44-211-246-156.compute-1.amazonaws.com
+         args: docker stack deploy -c docker-compose.yml local-test
